@@ -7,9 +7,7 @@ import java.util.Optional;
 public interface VeiculosRepository extends CrudRepository<Veiculos, String>{
 
 
-	static Optional<Object> findByPlaca(String placa) {
-        return Optional.empty();
-    }
+
 
 	Iterable<Veiculos> getVeiculosByLoja(String loja);
 
@@ -18,5 +16,8 @@ public interface VeiculosRepository extends CrudRepository<Veiculos, String>{
 	Iterable<Veiculos> getVeiculosByModelo(String modelo);
 
 	Optional<Veiculos> getVeiculosByPlaca(String placa);
+
+	Optional<Veiculos> findById(Integer id);
+
 
 };

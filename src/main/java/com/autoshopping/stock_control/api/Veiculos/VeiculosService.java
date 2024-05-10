@@ -17,19 +17,29 @@ public class VeiculosService {
         return rep.findAll();
     }
 
-
+    public Optional<Veiculos> getTesteById(Integer id) {
+        return rep.findById(id);
+    }
     public Iterable<Veiculos> getVeiculosByLoja(String loja) {
+
         return rep.getVeiculosByLoja(loja);
     }
     public Iterable<Veiculos> getVeiculosByMarca(String marca) {
+
         return rep.getVeiculosByMarca(marca);
     }
     public Iterable<Veiculos> getVeiculosByModelo(String modelo) {
+
         return rep.getVeiculosByModelo(modelo);
     }
     public Optional<Veiculos> getVeiculosByPlaca(String placa) {
+
         return rep.getVeiculosByPlaca(placa);
     }
+    private Optional<Veiculos> getVeiculosById(Integer id) {
+        return rep.findById(id);}
+
+
 
     /*Metodo para salvar um veículo*/
     public Veiculos insert(Veiculos veiculo) {
@@ -56,6 +66,12 @@ public class VeiculosService {
             throw new RuntimeException("Nao foi possivel atualizar o registro");
         }
     }
+    public void delete(Integer id){
+        Optional<Veiculos>veiculo=getVeiculosById(id);
+        rep.deleteById(String.valueOf(id));
+    }
+
+
 }
 
 

@@ -9,9 +9,6 @@ import java.util.Optional;
 public class VeiculosController {
 
     @Autowired
-    VeiculosRepository veiculosRepository;
-
-    @Autowired
     private VeiculosService service;
 
     /*Buscando todos os veiculos do banco de dados*/
@@ -21,6 +18,11 @@ public class VeiculosController {
     }
 
     /*Buscando os veiculos de acordo com criterios*/
+
+    @GetMapping("/{id}")
+    public Optional<Veiculos> get(@PathVariable("id") Integer id){
+        return service.getTesteById(id);
+    }
     @GetMapping("/loja/{loja}")
     public Iterable<Veiculos>getVeiculosByLoja(@PathVariable("loja")String loja){
         return service.getVeiculosByLoja(loja);
@@ -50,9 +52,14 @@ public class VeiculosController {
     @PutMapping(path="/placa/{placa}")
     public String put(@PathVariable("placa") String placa, @RequestBody Veiculos veiculo){
         Veiculos atualizarVeiculo=service.update(veiculo, placa);
-        return "Carro atualizado com sucesso: " +atualizarVeiculo.getPlaca();
+        return "Veiculo atualizado com sucesso: " +atualizarVeiculo.getPlaca();
     }
     /*Deletando um veículo*/
+    @DeleteMapping(path="{id}")
+    public String delete (@PathVariable("id") Integer id){
+        service.delete(id);
+        return "Veiculo excluido da base de dados;";
+    }
 
 
 
