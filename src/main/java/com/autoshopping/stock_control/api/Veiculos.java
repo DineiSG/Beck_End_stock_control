@@ -1,15 +1,13 @@
-package com.autoshopping.stock_control.api.Veiculos;
+package com.autoshopping.stock_control.api;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Optional;
-
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "veiculos")
 public class Veiculos {
@@ -24,10 +22,6 @@ public class Veiculos {
     private String cor;
     private String modelo;
     private String marca;
-
-
-
-
 
     public void save(Veiculos veiculo) {
     }

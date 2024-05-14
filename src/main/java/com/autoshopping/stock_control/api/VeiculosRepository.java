@@ -1,4 +1,4 @@
-package com.autoshopping.stock_control.api.Veiculos;
+package com.autoshopping.stock_control.api;
 
 import org.springframework.data.repository.CrudRepository;
 
