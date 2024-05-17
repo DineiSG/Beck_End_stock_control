@@ -1,4 +1,4 @@
-package com.autoshopping.stock_control.api;
+package com.autoshopping.stock_control.api.Veiculos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,28 +29,18 @@ public class VeiculosController {
     }
 
     @GetMapping("/loja/{loja}")
-    public ResponseEntity getVeiculosByLoja(@PathVariable("loja")String loja){
-        Optional<Veiculos> veiculos=service.getVeiculosByLoja();
-        return veiculos
-                .map(Veiculos -> ResponseEntity.ok(veiculos))
-                .orElse(ResponseEntity.notFound().build());
+    public Iterable<Veiculos>getVeiculosByLoja(@PathVariable("loja")String loja) {
+        return service.getVeiculosByLoja(loja);
     }
 
     @GetMapping("/marca/{marca}")
-    public ResponseEntity getVeiculosByMarca(@PathVariable("marca")String marca){
-        Optional<Veiculos> veiculos=service.getVeiculosByMarca();
-        return veiculos
-                .map(Veiculos -> ResponseEntity.ok(veiculos))
-                .orElse(ResponseEntity.notFound().build());
+    public Iterable<Veiculos>getVeiculosByMarca(@PathVariable("marca")String marca){
+        return service.getVeiculosByMarca(marca);
     }
 
     @GetMapping("/modelo/{modelo}")
-    public ResponseEntity getVeiculosByModelo(@PathVariable("modelo")String modelo){
-        Optional<Veiculos>veiculos=service.getVeiculosByModelo();
-        return veiculos
-                .map(Veiculos -> ResponseEntity.ok(veiculos))
-                .orElse(ResponseEntity.notFound().build());
-
+    public Iterable<Veiculos>getVeiculosByModelo(@PathVariable("modelo")String modelo){
+        return service.getVeiculosByModelo(modelo);
     }
 
     /*Esse metodo foi criado para auxiliar na fuunção de atualizar um veiculo */

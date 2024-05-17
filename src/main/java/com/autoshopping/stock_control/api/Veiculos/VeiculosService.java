@@ -1,4 +1,4 @@
-package com.autoshopping.stock_control.api;
+package com.autoshopping.stock_control.api.Veiculos;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,20 +12,17 @@ public class VeiculosService {
     private VeiculosRepository rep;
     private Iterable<Veiculos> optional;
 
+    public Iterable<Veiculos> getVeiculosByLoja(String loja) {return rep.findByLoja(loja);}
+
+    public Iterable<Veiculos> getVeiculosByMarca(String marca) {return rep.findByMarca(marca);}
+
+    public Iterable<Veiculos> getVeiculosByModelo(String modelo) {return rep.findByModelo(modelo);}
 
     public Iterable<Veiculos> getVeiculos(){
         return rep.findAll();
     }
 
-    public Optional<Veiculos> getVeiculosById() {return Optional.empty();}
-
     Optional<Veiculos> getVeiculosById(Integer id) {return rep.findById(id);}
-
-    public Optional<Veiculos> getVeiculosByLoja() {return Optional.empty();}
-
-    public Optional<Veiculos> getVeiculosByMarca() {return Optional.empty();}
-
-    public Optional<Veiculos> getVeiculosByModelo() {return Optional.empty();}
 
     public Optional<Veiculos> getVeiculosByPlaca(String placa) {return rep.getVeiculosByPlaca(placa); }
 
@@ -58,6 +55,8 @@ public class VeiculosService {
         }
         return false;
     }
+
+
 }
 
 

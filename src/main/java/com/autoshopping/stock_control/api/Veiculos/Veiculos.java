@@ -1,4 +1,4 @@
-package com.autoshopping.stock_control.api;
+package com.autoshopping.stock_control.api.Veiculos;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
