@@ -1,4 +1,4 @@
-package com.autoshopping.stock_control.api.Veiculos;
+package com.autoshopping.stock_control.api.veiculo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,11 +26,6 @@ public class VeiculosController {
         return veiculos
                 .map(Veiculos -> ResponseEntity.ok(veiculos))
                 .orElse(ResponseEntity.notFound().build());
-    }
-
-    @GetMapping("/loja/{loja}")
-    public Iterable<Veiculos>getVeiculosByLoja(@PathVariable("loja")String loja) {
-        return service.getVeiculosByLoja(loja);
     }
 
     @GetMapping("/marca/{marca}")

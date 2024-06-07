@@ -1,4 +1,4 @@
-package com.autoshopping.stock_control.api.Lojas;
+package com.autoshopping.stock_control.api.loja;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

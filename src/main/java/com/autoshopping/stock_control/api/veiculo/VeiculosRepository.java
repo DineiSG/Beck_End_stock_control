@@ -1,4 +1,4 @@
-package com.autoshopping.stock_control.api.Veiculos;
+package com.autoshopping.stock_control.api.veiculo;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -9,9 +9,6 @@ public interface VeiculosRepository extends CrudRepository<Veiculos, String>{
 	Optional<Veiculos> getVeiculosByPlaca(String placa);
 
 	Optional<Veiculos> findById(Integer id);
-
-
-	Iterable<Veiculos> findByLoja(String loja);
 
 	Iterable<Veiculos> findByMarca(String marca);
 

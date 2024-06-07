@@ -1,8 +1,9 @@
-package com.autoshopping.stock_control.api.Lojas;
+package com.autoshopping.stock_control.api.loja;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.Optional;
 
 @Service
@@ -11,19 +12,9 @@ public class LojasService {
     @Autowired
     private LojasRepository rep;
 
+    public Iterable<Lojas> getLojas(){return rep.findAll(); }
 
-
-
-
-
-    public Iterable<Lojas> getLojas(){
-        return rep.findAll();
-    }
-
-    public Optional<Lojas> getLojasById(Integer id) {return rep.getLojasById(id); }
-
-
-
+    public Optional<Lojas> getLojasById(Integer id) {return rep.getLojasById(BigInteger.valueOf(id)); }
 
     /*Metodo para cadastrar uma nova loja*/
     public Lojas insert(Lojas loja) {

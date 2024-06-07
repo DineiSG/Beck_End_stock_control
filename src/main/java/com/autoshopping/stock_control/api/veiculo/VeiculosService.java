@@ -1,4 +1,4 @@
-package com.autoshopping.stock_control.api.Veiculos;
+package com.autoshopping.stock_control.api.veiculo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,8 +11,6 @@ public class VeiculosService {
     @Autowired
     private VeiculosRepository rep;
     private Iterable<Veiculos> optional;
-
-    public Iterable<Veiculos> getVeiculosByLoja(String loja) {return rep.findByLoja(loja);}
 
     public Iterable<Veiculos> getVeiculosByMarca(String marca) {return rep.findByMarca(marca);}
 

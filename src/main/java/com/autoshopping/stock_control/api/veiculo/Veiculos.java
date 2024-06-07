@@ -1,4 +1,4 @@
-package com.autoshopping.stock_control.api.Veiculos;
+package com.autoshopping.stock_control.api.veiculo;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -9,19 +9,21 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "veiculos")
+@Table(name = "veiculo", schema = "vaga", uniqueConstraints = {@UniqueConstraint(name = "uk_placa__veiculo", columnNames = {"placa"})})
+
 public class Veiculos {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String placa;
-    private String tag;
-    private String loja;
-    private String ano_fabricacao;
+    private Integer id_unidade;
+    private String ano;
     private String cor;
     private String modelo;
     private String marca;
+    private String valor_meio_acesso;
+    private String veiculo_status;
 
     public void save(Veiculos veiculo) {
     }

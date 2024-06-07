@@ -1,4 +1,4 @@
-package com.autoshopping.stock_control.api.ExceptionConfig;
+package com.autoshopping.stock_control.api.exception;
 
 
 import org.springframework.dao.EmptyResultDataAccessException;

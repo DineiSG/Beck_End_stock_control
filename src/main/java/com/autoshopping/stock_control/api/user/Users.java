@@ -1,4 +1,4 @@
-package com.autoshopping.stock_control.api.Lojas;
+package com.autoshopping.stock_control.api.user;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -6,17 +6,16 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name="lojas")
-public class Lojas {
+@Table(name="users")
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nome_loja;
-    private String box;
-    private String telefone;
+    private String nome;
+    private String cpf;
+    private String tipo;
+    private String senha;
     private String email;
-    private String vagas;
-
 
 }
