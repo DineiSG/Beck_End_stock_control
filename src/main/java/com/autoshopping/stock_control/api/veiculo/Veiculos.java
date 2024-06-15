@@ -5,13 +5,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.hateoas.RepresentationModel;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "veiculo", schema = "vaga", uniqueConstraints = {@UniqueConstraint(name = "uk_placa__veiculo", columnNames = {"placa"})})
 
-public class Veiculos {
+public class Veiculos extends RepresentationModel<Veiculos> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +25,7 @@ public class Veiculos {
     private String marca;
     private String valor_meio_acesso;
     private String veiculo_status;
+    private String unidade;
 
     public void save(Veiculos veiculo) {
     }

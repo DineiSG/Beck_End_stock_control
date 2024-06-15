@@ -16,6 +16,8 @@ public class LojasService {
 
     public Optional<Lojas> getLojasById(Integer id) {return rep.getLojasById(BigInteger.valueOf(id)); }
 
+    public Optional<Lojas> getLojasByDescricao(String descricao) { return rep.findByDescricao(descricao);}
+
     /*Metodo para cadastrar uma nova loja*/
     public Lojas insert(Lojas loja) {
         return rep.save(loja);
@@ -42,4 +44,6 @@ public class LojasService {
         }
         return false;
     }
+
+
 }

@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface LojasRepository extends CrudRepository<Lojas, String> {
 
     Optional<Lojas> getLojasById(BigInteger id);
+
+    Optional<Lojas> findByDescricao(String descricao);
 }

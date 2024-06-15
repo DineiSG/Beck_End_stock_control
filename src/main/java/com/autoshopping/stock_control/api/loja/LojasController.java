@@ -24,6 +24,13 @@ public class LojasController {
                 .map(Lojas -> ResponseEntity.ok(loja))
                 .orElse(ResponseEntity.notFound().build());
     }
+    @GetMapping("/descricao/{descricao}")
+    public ResponseEntity getgetLojasByDescricao(@PathVariable("descricao") String descricao){
+        Optional<Lojas> loja=service.getLojasByDescricao(descricao);
+        return loja
+                .map(Lojas -> ResponseEntity.ok(loja))
+                .orElse(ResponseEntity.notFound().build());
+    }
 
 
     /*Adicionando uma nova loja*/
