@@ -16,7 +16,7 @@ public class LojasService {
 
     public Optional<Lojas> getLojasById(Integer id) {return rep.getLojasById(BigInteger.valueOf(id)); }
 
-    public Optional<Lojas> getLojasByDescricao(String descricao) { return rep.findByDescricao(descricao);}
+    public Optional<Lojas> getLojasByDescricao(String descricao) { return rep.findByDescricaoIgnoreCase(descricao);}
 
     /*Metodo para cadastrar uma nova loja*/
     public Lojas insert(Lojas loja) {
@@ -35,6 +35,8 @@ public class LojasService {
             throw new RuntimeException("Nao foi possivel atualizar o registro");
         }
     }
+
+
 
     /*Metodo para deletar uma loja*/
     public boolean delete(Integer id){

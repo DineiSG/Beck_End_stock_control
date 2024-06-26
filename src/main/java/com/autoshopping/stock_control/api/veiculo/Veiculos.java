@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.hateoas.RepresentationModel;
 
+import java.sql.Timestamp;
+
 @Getter
 @Setter
 @Entity
@@ -26,6 +28,10 @@ public class Veiculos extends RepresentationModel<Veiculos> {
     private String valor_meio_acesso;
     private String veiculo_status;
     private String unidade;
+    private String renavan;
+
+    @Column(name = "data_registro")
+    private Timestamp dataRegistro;
 
     public void save(Veiculos veiculo) {
     }
@@ -37,4 +43,6 @@ public class Veiculos extends RepresentationModel<Veiculos> {
     public Object get() {
         return null;
     }
+
+
 }

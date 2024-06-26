@@ -47,6 +47,12 @@ public class LojasController {
         return ResponseEntity.ok("Loja atualizada com sucesso. "+atualizarLojas);
     }
 
+    @PatchMapping("/{id}")
+    public ResponseEntity patch(@PathVariable("id") Integer id, @RequestBody Lojas loja){
+        Lojas atualizar=service.update(loja, id);
+        return  ResponseEntity.ok("Detalhe atualizado" +atualizar);
+    }
+
     /*Deletando uma loja*/
     @DeleteMapping(path="{id}")
     public ResponseEntity delete (@PathVariable("id") Integer id){

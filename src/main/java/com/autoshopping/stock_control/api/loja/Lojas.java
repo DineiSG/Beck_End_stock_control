@@ -3,6 +3,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Timestamp;
+
 @Getter
 @Setter
 @Entity
@@ -17,6 +19,8 @@ public class Lojas {
     private String telefone;
     private String email;
     private String vagas;
+    @Column(name = "data_registro")
+    private Timestamp dataRegistro;
 
 
 }

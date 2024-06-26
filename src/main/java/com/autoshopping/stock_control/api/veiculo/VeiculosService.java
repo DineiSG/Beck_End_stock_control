@@ -28,9 +28,7 @@ public class VeiculosService {
 
 
     /*Metodo para salvar um veículo*/
-    public Veiculos insert(Veiculos veiculo) {
-        return rep.save(veiculo);
-    }
+    public Veiculos insert(Veiculos veiculo) {return rep.save(veiculo);}
 
     /*Metodo para atualizar um veículo*/
     public Veiculos update(Veiculos veiculo, String placa){
