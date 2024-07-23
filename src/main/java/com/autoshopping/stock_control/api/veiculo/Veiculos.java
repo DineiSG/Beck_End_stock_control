@@ -5,6 +5,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.type.descriptor.jdbc.TimeAsTimestampWithTimeZoneJdbcType;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.sql.Timestamp;
@@ -29,9 +30,7 @@ public class Veiculos extends RepresentationModel<Veiculos> {
     private String veiculo_status;
     private String unidade;
     private String renavan;
-
-    @Column(name = "data_registro")
-    private Timestamp dataRegistro;
+    private Timestamp data_registro;
 
     public void save(Veiculos veiculo) {
     }

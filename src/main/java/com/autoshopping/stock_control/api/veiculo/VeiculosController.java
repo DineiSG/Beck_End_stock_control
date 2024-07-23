@@ -3,6 +3,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -28,9 +30,9 @@ public class VeiculosController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/marca/{marca}")
-    public Iterable<Veiculos>getVeiculosByMarca(@PathVariable("marca")String marca){
-        return service.getVeiculosByMarca(marca);
+    @GetMapping("/unidade/{unidade}")
+    public Iterable<Veiculos>getVeiculosByUnidade(@PathVariable("unidade")String unidade){
+        return service.getVeiculosByUnidade(unidade);
     }
 
     @GetMapping("/modelo/{modelo}")
@@ -58,7 +60,10 @@ public class VeiculosController {
     @PutMapping(path="/placa/{placa}")
     public ResponseEntity put(@PathVariable("placa") String placa, @RequestBody Veiculos veiculo){
         Veiculos atualizarVeiculo=service.update(veiculo, placa);
-        return ResponseEntity.ok("Veiculo atualizado com sucesso");
+        Map<String, Object> response = new HashMap<>();
+        response.put("mensagem", "Veiculo atualizado com sucesso");
+        response.put("veiculo", atualizarVeiculo);
+        return ResponseEntity.ok(response);
     }
 
     /*Deletando um veículo*/

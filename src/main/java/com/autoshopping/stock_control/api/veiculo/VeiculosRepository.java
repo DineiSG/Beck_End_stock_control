@@ -10,7 +10,7 @@ public interface VeiculosRepository extends CrudRepository<Veiculos, String>{
 
 	Optional<Veiculos> findById(Integer id);
 
-	Iterable<Veiculos> findByMarca(String marca);
+	Iterable<Veiculos> findByUnidade(String unidade);
 
 	Iterable<Veiculos> findByModelo(String modelo);
 };

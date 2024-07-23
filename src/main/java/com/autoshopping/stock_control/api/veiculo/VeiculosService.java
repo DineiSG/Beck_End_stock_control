@@ -12,7 +12,8 @@ public class VeiculosService {
     private VeiculosRepository rep;
     private Iterable<Veiculos> optional;
 
-    public Iterable<Veiculos> getVeiculosByMarca(String marca) {return rep.findByMarca(marca);}
+
+    public Iterable<Veiculos> getVeiculosByUnidade(String unidade) {return rep.findByUnidade(unidade);}
 
     public Iterable<Veiculos> getVeiculosByModelo(String modelo) {return rep.findByModelo(modelo);}
 
@@ -51,7 +52,6 @@ public class VeiculosService {
         }
         return false;
     }
-
 
 }
 

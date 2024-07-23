@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -44,7 +46,11 @@ public class LojasController {
     @PutMapping(path="/{id}")
     public ResponseEntity put(@PathVariable("id") Integer id, @RequestBody Lojas loja){
         Lojas atualizarLojas=service.update(loja, id);
-        return ResponseEntity.ok("Loja atualizada com sucesso. "+atualizarLojas);
+        /* tratando para que a resposta seja um json*/
+        Map<String, Object> response = new HashMap<>();
+        response.put("mensagem", "Loja atualizada com sucesso.");
+        response.put("loja", atualizarLojas);
+        return ResponseEntity.ok(response);
     }
 
     @PatchMapping("/{id}")
