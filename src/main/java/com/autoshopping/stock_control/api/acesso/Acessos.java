@@ -11,8 +11,8 @@ import java.sql.Timestamp;
 @Setter
 @Entity
 @Table(name = "movimentacao_veiculo", schema = "acesso", uniqueConstraints = {
-        @UniqueConstraint(name = "uk_data_movimentacao_veiculo_acessante_destino__movimentacao_veiculo",
-        columnNames = {"data_movimentacao", "id_veiculo_acessante", "id_unidade_destino"})})
+@UniqueConstraint(name = "uk_data_movimentacao_veiculo_acessante_destino__movimentacao_veiculo",
+columnNames = {"data_movimentacao", "id_veiculo_acessante", "id_unidade_destino"})})
 public class Acessos {
 
     @Id
@@ -25,5 +25,7 @@ public class Acessos {
     private String sentido;
     private Integer id_unidade_destino;
     private Integer id_equipamento_acesso;
-    private Integer id_veiculo_acessante;
+
+    @Column(name = "id_veiculo_acessante")
+    private Integer idVeiculoAcessante;
 }

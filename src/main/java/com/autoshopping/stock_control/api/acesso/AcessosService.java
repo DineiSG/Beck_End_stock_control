@@ -4,6 +4,9 @@ package com.autoshopping.stock_control.api.acesso;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 
 @Service
 public class AcessosService {
@@ -13,4 +16,7 @@ public class AcessosService {
 
     public Iterable<Acessos> getAcessos(){return rep.findAll(); }
 
+    public List<Acessos> getAcessosByIdVeiculoAcessante(Integer idVeiculoAcessante) {
+        return rep.findByIdVeiculoAcessante(idVeiculoAcessante);
+    }
 }
