@@ -35,9 +35,8 @@ public class VeiculosService {
     public Veiculos update(Veiculos veiculo, String placa){
         Optional<Veiculos>optional=getVeiculosByPlaca(placa);
         if(optional.isPresent()){
-        Veiculos veiculos=optional.get();
+            Veiculos veiculos=optional.get();
             rep.save(veiculo);
-
             return veiculo;
         }else{
             throw new RuntimeException("Nao foi possivel atualizar o registro");

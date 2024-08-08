@@ -43,7 +43,7 @@ public class VeiculosController {
     /*Esse metodo foi criado para auxiliar na fuunção de atualizar um veiculo */
     @GetMapping("/placa/{placa}")
     public ResponseEntity getVeiculosByPlaca(@PathVariable("placa")String placa){
-            Optional<Veiculos>veiculos=service.getVeiculosByPlaca(placa);
+        Optional<Veiculos>veiculos=service.getVeiculosByPlaca(placa);
         return veiculos
                 .map(Veiculos -> ResponseEntity.ok(veiculos))
                 .orElse(ResponseEntity.notFound().build());
@@ -71,9 +71,10 @@ public class VeiculosController {
     public ResponseEntity delete (@PathVariable("id") Integer id){
         boolean ok=service.delete(id);
         return ok?
-            ResponseEntity.ok("Veiculo excluido com sucesso"):
-            ResponseEntity.notFound().build();
+                ResponseEntity.ok("Veiculo excluido com sucesso"):
+                ResponseEntity.notFound().build();
 
     }
+
 
 }
