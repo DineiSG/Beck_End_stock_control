@@ -32,6 +32,7 @@ public class Veiculos extends RepresentationModel<Veiculos> {
     private String observacoes;
     private Timestamp data_registro;
     private Timestamp data_alteracao;
+    private String ano_modelo;
 
     public void save(Veiculos veiculo) {
     }

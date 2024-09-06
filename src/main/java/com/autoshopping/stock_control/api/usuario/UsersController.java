@@ -1,4 +1,4 @@
-package com.autoshopping.stock_control.api.user;
+package com.autoshopping.stock_control.api.usuario;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/usuarios")
 public class UsersController {
 
         @Autowired

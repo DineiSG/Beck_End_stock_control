@@ -1,8 +1,14 @@
 package com.autoshopping.stock_control.api.veiculo;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -28,6 +34,32 @@ public class VeiculosController {
         return veiculos
                 .map(Veiculos -> ResponseEntity.ok(veiculos))
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    // Buscando os dados da API do DENATRAN
+    @GetMapping("/dados")
+    public ResponseEntity<Map<String, Object>> getDados(@RequestParam String placa){
+        HttpClient client=HttpClient.newHttpClient();
+
+        String uri = "https://www.vistoriago.com.br/webservice/tp15/15BdvNacional.php?clie=7048&user=8001&cons=15&serial=c40d4850013e8351091314c7b29c4e&placa="+placa;
+
+        HttpRequest request= HttpRequest.newBuilder()
+                .uri(URI.create(uri))
+                .build();
+
+        try{
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            String responseBody=response.body();
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            Map<String, Object> jsonMap = objectMapper.readValue(responseBody, Map.class);
+
+            return ResponseEntity.ok(jsonMap);
+
+        }catch(Exception e){
+            e.printStackTrace();
+            return  ResponseEntity.status(500).body(Map.of("erro", "Erro ao obter dados para a placa: " +placa));
+        }
     }
 
     @GetMapping("/unidade/{unidade}")

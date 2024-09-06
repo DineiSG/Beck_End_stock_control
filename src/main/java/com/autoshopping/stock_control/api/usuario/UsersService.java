@@ -1,4 +1,4 @@
-package com.autoshopping.stock_control.api.user;
+package com.autoshopping.stock_control.api.usuario;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
