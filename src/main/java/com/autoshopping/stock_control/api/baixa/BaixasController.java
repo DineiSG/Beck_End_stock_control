@@ -1,6 +1,7 @@
 package com.autoshopping.stock_control.api.baixa;
 
-import com.autoshopping.stock_control.api.veiculo.Veiculos;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,8 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/baixas")
+@RequestMapping("/api/v1/baixas")
 public class BaixasController {
+
+    private static final Logger logger= LoggerFactory.getLogger(BaixasController.class);
 
     @Autowired
     private BaixasService service;
@@ -43,6 +46,7 @@ public class BaixasController {
     @PostMapping
     public ResponseEntity post (@RequestBody Baixas baixa) {
         Baixas novo=service.insert(baixa);
+        logger.info("Registro de baixa realizado");
         return ResponseEntity.ok("Baixa realizada com sucesso");
     }
 

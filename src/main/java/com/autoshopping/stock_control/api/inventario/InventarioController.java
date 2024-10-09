@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/inventario")
+@RequestMapping("api/v1/inventario")
 public class InventarioController {
 
     @Autowired

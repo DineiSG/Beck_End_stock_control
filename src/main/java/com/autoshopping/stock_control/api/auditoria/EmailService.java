@@ -10,6 +10,7 @@ import javax.mail.internet.InternetAddress;
 import java.util.Properties;
 
 public class EmailService {
+
     public static void  enviarEmail(String to, String subject, String body) throws MessagingException{
         final String username = "tec.informacao@autoshopping.com.br";
         final String password = "Santos@2201";

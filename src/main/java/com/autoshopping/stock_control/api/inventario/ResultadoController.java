@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/resultado")
+@RequestMapping("api/v1/resultado")
 public class ResultadoController {
 
     @Autowired

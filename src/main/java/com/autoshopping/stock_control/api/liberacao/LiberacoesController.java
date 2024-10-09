@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/api/liberacoes")
+@RequestMapping("/api/v1/liberacoes")
 public class LiberacoesController {
 
     @Autowired

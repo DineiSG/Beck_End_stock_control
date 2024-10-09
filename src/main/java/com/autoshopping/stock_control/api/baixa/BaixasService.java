@@ -1,11 +1,15 @@
 package com.autoshopping.stock_control.api.baixa;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 @Service
 public class BaixasService {
+
+    private static final Logger logger= LoggerFactory.getLogger(BaixasService.class);
 
     @Autowired
     private BaixasRepository rep;

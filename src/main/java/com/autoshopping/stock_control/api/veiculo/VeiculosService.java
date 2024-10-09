@@ -12,14 +12,13 @@ public class VeiculosService {
     private VeiculosRepository rep;
     private Iterable<Veiculos> optional;
 
+    public Iterable<Veiculos> getVeiculos(){
+        return rep.findAll();
+    }
 
     public Iterable<Veiculos> getVeiculosByUnidade(String unidade) {return rep.findByUnidade(unidade);}
 
     public Iterable<Veiculos> getVeiculosByModelo(String modelo) {return rep.findByModelo(modelo);}
-
-    public Iterable<Veiculos> getVeiculos(){
-        return rep.findAll();
-    }
 
     Optional<Veiculos> getVeiculosById(Integer id) {return rep.findById(id);}
 

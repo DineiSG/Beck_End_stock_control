@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/veiculos")
+@RequestMapping("/api/v1/veiculos")
 public class VeiculosController {
 
     @Autowired
@@ -80,7 +80,7 @@ public class VeiculosController {
                 .map(Veiculos -> ResponseEntity.ok(veiculos))
                 .orElse(ResponseEntity.notFound().build());
     }
-
+ 
     /*Cadastrando novos veiculos*/
     @PostMapping
     public ResponseEntity post (@RequestBody Veiculos veiculo) {
