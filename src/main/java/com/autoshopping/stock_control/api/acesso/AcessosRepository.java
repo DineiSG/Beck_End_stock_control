@@ -11,5 +11,8 @@ import java.util.List;
 public interface AcessosRepository extends CrudRepository<Acessos, Integer> {
 
     List<Acessos> findByIdVeiculoAcessante(Integer idVeiculoAcessante);
+
+
+    void deleteByIdVeiculoAcessante(Integer idVeiculoAcessante);
 }
 

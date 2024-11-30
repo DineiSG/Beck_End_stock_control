@@ -3,6 +3,7 @@ package com.autoshopping.stock_control.api.loja;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +27,7 @@ public class LojasController {
                 .map(Lojas -> ResponseEntity.ok(loja))
                 .orElse(ResponseEntity.notFound().build());
     }
+
     @GetMapping("/descricao/{descricao}")
     public ResponseEntity getgetLojasByDescricao(@PathVariable("descricao") String descricao){
         Optional<Lojas> loja=service.getLojasByDescricao(descricao);
@@ -33,7 +35,6 @@ public class LojasController {
                 .map(Lojas -> ResponseEntity.ok(loja))
                 .orElse(ResponseEntity.notFound().build());
     }
-
 
     /*Adicionando uma nova loja*/
     @PostMapping

@@ -22,6 +22,17 @@ public class Vendas {
     private String renavam;
     private String vendedor;
     private String comprador;
+    private String nascimento;
+    private String telefone;
+    private String cep;
+    private String rua;
+    private String endereco;
+    private String bairro;
+    private String cidade;
+    private String estado;
+    private String email;
+    private String cpf;
+    private String rg;
     @Column(name = "valor_venda")
     private String valorVenda;
     @Column(name = "valor_fipe")

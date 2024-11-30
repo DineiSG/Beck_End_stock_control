@@ -1,5 +1,6 @@
 package com.autoshopping.stock_control.api.liberacao;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,9 @@ public class LiberacoesService {
     private Iterable<Liberacoes> optional;
 
 
+    public Optional<Liberacoes> getLiberacoesByMotivo(String motivo) {
+        return rep.findByMotivo(motivo);
+    }
 
     public Iterable<Liberacoes> getLiberacoes() {
         return rep.findAll();

@@ -24,6 +24,6 @@ public class Baixas {
     private String unidade;
     private String motivo;
     private Timestamp data_registro;
-    private String valor_meio_acesso;
+    private String tag;
     private String observacoes;
 }

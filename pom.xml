@@ -15,7 +15,10 @@
 	<description>API para para o projeto Stock Control</description>
 	<properties>
 		<java.version>17</java.version>
+		<maven.test.failure.ignore>false</maven.test.failure.ignore>
+		<surefire.printSummary>true</surefire.printSummary>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -45,18 +48,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-hateoas</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
 			<version>1.6.2</version>
 		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-inline</artifactId>
-			<version>4.0.0</version>
-			<scope>test</scope>
-		</dependency>
+
 
     </dependencies>
 

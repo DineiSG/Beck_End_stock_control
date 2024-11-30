@@ -1,5 +1,6 @@
 package com.autoshopping.stock_control.api.loja;
 
+import com.autoshopping.stock_control.api.veiculo.VeiculosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,9 @@ public class LojasService {
 
     @Autowired
     private LojasRepository rep;
+
+    @Autowired
+    private VeiculosRepository veiculosRepository;
 
     public Iterable<Lojas> getLojas(){return rep.findAll(); }
 
@@ -35,8 +39,6 @@ public class LojasService {
             throw new RuntimeException("Nao foi possivel atualizar o registro");
         }
     }
-
-
 
     /*Metodo para deletar uma loja*/
     public boolean delete(Integer id){

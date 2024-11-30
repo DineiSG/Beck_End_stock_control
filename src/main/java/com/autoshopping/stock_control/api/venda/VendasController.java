@@ -3,6 +3,7 @@ package com.autoshopping.stock_control.api.venda;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,9 +23,15 @@ public class VendasController {
     public ResponseEntity<Iterable<Vendas>> get(){return ResponseEntity.ok(service.getVendas());}
 
     @GetMapping("/placa/{placa}")
-    public Optional<Vendas> getVendasByPlaca(@PathVariable("placa") String placa){
-        logger.info("Consulta à venda do veiculo com a placa " +placa ,"realizada.");
-        return service.getVendasByPlaca(placa);
+    public ResponseEntity<Vendas> getVendasByPlaca(@PathVariable("placa") String placa){
+        logger.info("Consulta à venda do veiculo com a placa {} realizada.", placa);
+        Optional<Vendas> venda = service.getVendasByPlaca(placa);
+        if (venda.isPresent()){
+            return ResponseEntity.ok(venda.get());
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
 
     }
 

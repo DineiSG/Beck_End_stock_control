@@ -21,6 +21,8 @@ public class Lojas {
     private String vagas;
     @Column(name = "data_registro")
     private Timestamp dataRegistro;
+    @Column(name = "qtd_veiculos")
+    private String qtdVeiculos;
 
 
 }
