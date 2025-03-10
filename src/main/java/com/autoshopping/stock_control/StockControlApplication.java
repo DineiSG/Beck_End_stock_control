@@ -22,7 +22,6 @@ public class StockControlApplication {
 		SpringApplication.run(StockControlApplication.class, args);
 		logger.info("Api iniciada.");
 	}
-
 }
 
 

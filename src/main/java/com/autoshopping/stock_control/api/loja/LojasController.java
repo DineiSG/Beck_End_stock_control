@@ -67,6 +67,5 @@ public class LojasController {
         return ok?
                 ResponseEntity.ok("Loja excluida com sucesso"):
                 ResponseEntity.notFound().build();
-
     }
 }

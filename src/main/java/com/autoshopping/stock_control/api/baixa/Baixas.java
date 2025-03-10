@@ -23,7 +23,8 @@ public class Baixas {
     private String renavan;
     private String unidade;
     private String motivo;
-    private Timestamp data_registro;
+    @Column(name = "data_registro")
+    private Timestamp dataRegistro;
     private String tag;
     private String observacoes;
 }

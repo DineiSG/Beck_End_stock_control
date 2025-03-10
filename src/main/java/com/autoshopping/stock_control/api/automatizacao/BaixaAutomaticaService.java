@@ -53,13 +53,14 @@ public class BaixaAutomaticaService {
                 baixa.setUnidade(veiculos.getUnidade());
                 baixa.setTag(veiculos.getTag());
                 baixa.setMotivo(liberacao.getMotivo());
-                baixa.setData_registro(liberacao.getDataRegistro());
+                baixa.setDataRegistro(liberacao.getDataRegistro());
                 baixa.setObservacoes("Baixa automatica");
                 baixasRepository.save(baixa);
 
                 veiculos.setUnidade(null);
                 veiculos.setIdUnidade(null);
                 veiculos.setTag(null);
+                veiculos.setValorMeioAcesso(null);
                 veiculos.setObservacoes("Baixa realizada de forma automatica por motivo de venda, devolução ou transferencia.");
                 veiculosRepository.save(veiculos);
 

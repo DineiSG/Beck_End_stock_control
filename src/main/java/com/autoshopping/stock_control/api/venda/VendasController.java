@@ -31,13 +31,11 @@ public class VendasController {
         }else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-
-
     }
 
     @GetMapping("/unidade/{unidade}")
     public Optional<Vendas> getVendasByUnidade(@PathVariable("unidade") String unidade){
-        logger.info("Consulta às venda de veiculos da loja "+unidade ," realizada.");
+        logger.info("Consulta às venda de veiculos da loja {} realizada.", unidade);
         return  service.getVendasByUnidade(unidade);
     }
 
@@ -45,7 +43,6 @@ public class VendasController {
     public Optional<Vendas> getVendasByVendedor(@PathVariable("vendedor") String vendedor){
         logger.info("Consulta às vendas realizadas pelo vendedor "+vendedor," realizada");
         return service.getVendasByVendedor(vendedor);
-
     }
 
     @PostMapping
@@ -53,7 +50,6 @@ public class VendasController {
         Vendas nova=service.insert(venda);
         logger.info("Foi realizada uma nova comunicação de venda: "+venda);
         return ResponseEntity.ok("Venda comunicada com sucesso.");
-
     }
     @DeleteMapping("{id}")
     public ResponseEntity delete (@PathVariable("id") Integer id){
@@ -62,9 +58,5 @@ public class VendasController {
                 ResponseEntity.ok("Registro deletado com successo"):
                 ResponseEntity.notFound().build();
     }
-
-
-
-
 }
 
