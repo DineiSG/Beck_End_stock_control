@@ -26,7 +26,7 @@ public class Veiculos extends RepresentationModel<Veiculos> {
     private String cor;
     private String modelo;
     private String marca;
-    @Column(name="valor_meio_acesso") /*ALTERADO. TESTAR PARA VER SE NAO IRA INFLUENCIAR EM OUTRAS PARTES DO CODIGO NO FRONT END*/
+    @Column(name="valor_meio_acesso")
     private String valorMeioAcesso;
     private String veiculo_status;
     private String unidade;

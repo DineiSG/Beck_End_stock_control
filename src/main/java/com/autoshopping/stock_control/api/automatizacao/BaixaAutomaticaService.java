@@ -1,6 +1,5 @@
 package com.autoshopping.stock_control.api.automatizacao;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.autoshopping.stock_control.api.baixa.Baixas;
 import com.autoshopping.stock_control.api.baixa.BaixasRepository;
 import com.autoshopping.stock_control.api.liberacao.Liberacoes;
@@ -10,6 +9,7 @@ import com.autoshopping.stock_control.api.veiculo.VeiculosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -26,7 +26,11 @@ public class BaixaAutomaticaService {
     @Autowired
     private VeiculosRepository veiculosRepository;
 
-    @Scheduled(cron = "00 17 16 * * *")
+    //Horarios de verificação de baixas automaticas
+    @Scheduled(cron = "00 28 11 * * *")
+    @Scheduled(cron = "00 00 18 * * *")
+    @Scheduled(cron = "00 45 23 * * *")
+    @Transactional
     public void processarBaixasAutomaticas(){
         System.out.println("Iniciando processo de baixas automáticas às " + LocalDateTime.now());
 
@@ -34,7 +38,7 @@ public class BaixaAutomaticaService {
         Timestamp inicioDoDia = Timestamp.valueOf(hoje.atStartOfDay());
         Timestamp fimDoDia = Timestamp.valueOf(hoje.plusDays(1).atStartOfDay().minusNanos(1));
         List<Liberacoes> liberacoes = liberacoesRepository.findByMotivoInAndDataRegistroBetween(
-                List.of("DEVOLUCAO", "VENDA", "TRANSFERENCIA"),
+                List.of("DEVOLUÇÃO", "VENDA", "TRANSFERENCIA"),
                 inicioDoDia,
                 fimDoDia
         );
